@@ -1,0 +1,123 @@
+// talk about imports
+
+@import colors
+@import mixins
+
+$font-primary: 'Oswald', 'helvetica', sans-serif
+$font-secondary: monospace
+
+
+//talk about utility classes and @extend!
+.center
+  margin: 0 auto
+
+.border-bottom
+  padding-bottom: 2vh
+  border-bottom: 2vh solid $black
+
+.margin-reset
+  margin: 0
+
+.full-width
+  width: 100%
+
+///applying custom type rules
+.monospace
+  font-family: $font-secondary
+  letter-spacing: .2rem
+
+h1, h2, h3
+  @extend .margin-reset
+
+
+///this is all "nested". Nesting is really cool!
+body
+  @extend .center
+  background-color: $off-white
+  font-family: $font-primary
+  font-size: 5vh
+  text-transform: uppercase
+
+
+  header
+    @extend .center
+    @extend .full-width
+
+
+    h1
+      // @extend .border-bottom
+      font-size: 17vh
+      letter-spacing: 1vh
+      text-align: center
+
+
+  nav
+    @extend .center
+    // @extend .border-bottom
+    padding-bottom: 0
+
+    ul
+      margin: 0.5em auto
+      width: 80%
+
+      li
+        @extend .monospace
+        display: inline
+        margin: 0 12vh
+        transition: .2s
+        //talk about &
+        &:hover
+          color: $main-color
+
+  .row
+    display: flex
+    margin-top: 8vh
+
+    .grid-box
+      color: $off-white
+      flex: 1
+      width: 33.3vw
+      height: 33.3vh
+      transition: .2s
+
+
+      h2
+        // @extend .border-bottom
+        text-align: center
+        margin: 9vh
+        font-size: 300%
+        color: $off-white
+        // border-color: $off-white
+
+.contact
+  margin: 4vh auto
+  padding: 3vh 0
+  color: $off-white
+  background-color: $black
+  width: 32.4vw
+  text-align: center
+  //talk about mixins
+  +box-shadow( -1.5vh, 1.5vh, 0, 0, $green)
+  &:hover
+    color: $green
+
+p
+  @extend .monospace
+  &:hover
+    color: $main-color
+
+.one
+  background: $navy
+  // &:hover
+  //   background: adjust-hue($navy, 20deg)
+
+
+.two
+  background: $main-color
+  // &:hover
+  //   background: adjust-hue($main-color, 20deg)
+
+.three
+  background: $green
+  // &:hover
+  //   background: adjust-hue($green, 20deg)
